@@ -5,8 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Etch-a-Sketch</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="grid-containter"></div>
+    <div class="grid-containter">
+      <div class="content">
+        <div class="board"></div>
+        <div class="buttons">
+          <button>Black</button>
+          <button>Eraser</button>
+          <div>
+            <input
+              type="number"
+              id="size-input"
+              value="16"
+              placeholder="Size of the board"
+            />
+            <button class="size-button buttons">Set Size</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
