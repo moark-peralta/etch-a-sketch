@@ -33,13 +33,13 @@ randomBtn.addEventListener(
 );
 
 setButton.addEventListener("click", function () {
-  const size = parseInt(sizeInput.value);
+  const size = parseInt(prompt("Enter size of board (min: 8, max: 100)"));
   if (size > 100) {
     alert("The board can only be 100x100");
     return;
   }
-  if (size < 2) {
-    alert("Minimun board size is 2x2");
+  if (size < 8) {
+    alert("Minimun board size is 8x8");
     return;
   }
   resetBoard();
