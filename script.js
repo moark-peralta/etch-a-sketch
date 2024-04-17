@@ -7,15 +7,16 @@ const resetButton = document.querySelector(".reset-button");
 const blackBtn = document.querySelector(".black");
 const eraserBtn = document.querySelector(".eraser");
 const randomBtn = document.querySelector(".random");
-
+const body = document.querySelector("body");
 let color = "black";
+let click = "true";
 
 function createBoard(size) {
   board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
   board.style.gridTemplateRows = `repeat(${size}, 1fr)`;
   for (let i = 0; i < size * size; i++) {
     let square = document.createElement("div");
-    square.style.backgroundColor = "blue";
+    square.style.backgroundColor = "white";
     square.addEventListener("mouseover", function () {
       square.style.backgroundColor = color;
     });
@@ -32,8 +33,16 @@ randomBtn.addEventListener(
 );
 
 setButton.addEventListener("click", function () {
-  resetBoard();
   const size = parseInt(sizeInput.value);
+  if (size > 100) {
+    alert("The board can only be 100x100");
+    return;
+  }
+  if (size < 2) {
+    alert("Minimun board size is 2x2");
+    return;
+  }
+  resetBoard();
   createBoard(size);
 });
 
@@ -41,9 +50,8 @@ resetButton.addEventListener("click", function () {
   resetBoard();
 });
 
-//Reset Board
 function resetBoard() {
-  board.innerHTML = "";
+  let square = board.querySelectorAll("div");
+  square.forEach((div) => (div.style.backgroundColor = "white"));
 }
-
 createBoard();
